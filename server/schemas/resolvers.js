@@ -9,7 +9,7 @@ const resolvers = {
         },
 
         user: async (parent, {username}) => {
-            return User.findOne({username: username});
+            return User.findOne({ username: username });
         },
 
         me: async (parent, args, context) => {
