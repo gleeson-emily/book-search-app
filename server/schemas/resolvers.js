@@ -56,12 +56,12 @@ const resolvers = {
             throw new AuthenticationError('Error! Please try again.')
         },
         
-        removeBook: async (parent, { bookData }, context) => {
+        removeBook: async (parent, { bookId }, context) => {
             if(context.user){
                 const userBook = await User.findByIdAndUpdate(
                     { _id: context.user._id },
-                    {$pull: { savedBooks: { bookId: bookId } } },
-                    {new: true}
+                    { $pull: { savedBooks: { bookId: bookId } } },
+                    { new: true }
                 )
                 return userBook;
             }
