@@ -29,34 +29,36 @@ export const LOGIN_USER = gql`
 `;
 
 export const SAVE_BOOK = gql`
-mutation saveBook($bookData: BookSearch){
-    saveBook(bookData:$bookData){
+mutation saveBook($bookData: BookSearch!){
+    saveBook(bookData: $bookData){
         _id
         username
-        email 
+        email
         bookCount
-      savedBooks {
-        title
-        authors
-        description
-        image
-        link
-      }
+        savedBooks {
+          bookId
+          title
+          authors
+          description
+          image
+          link
+        }
     }
 }`
 
 
 export const REMOVE_BOOK = gql`
-mutation removeBook($bookData: BookSearch){
-    removeBook(bookData:$bookData){
+mutation removeBook($bookId: ID!){
+   removeBook(bookId:$bookId){
         _id
         username
         savedBooks {
-        title
-        authors
-        description
-        image
-        link
+          bookId
+          title
+          authors
+          description
+          image
+          link
         }
     }
 }`
