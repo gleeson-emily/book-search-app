@@ -41,7 +41,7 @@ mutation saveBook($bookData: BookSearch){
 }`
 
 
-export const DELETE_BOOK = gql`
+export const REMOVE_BOOK = gql`
 mutation deleteBook($bookData: BookSearch){
     deleteBook(bookData:$bookData){
         _id
