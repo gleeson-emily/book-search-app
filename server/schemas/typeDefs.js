@@ -26,7 +26,7 @@ type Book {
 }
 
 input BookSearch {
-    bookId: String
+    bookId: ID!
     title: String
     authors: [String]
     description: String
